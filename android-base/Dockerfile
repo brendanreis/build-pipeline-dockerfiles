@@ -57,11 +57,3 @@ RUN mkdir -p ${ANDROID_SDK}/.android && \
     touch ${ANDROID_SDK}/.android/repositories.cfg
 
 ENV GYP_GENERATORS=ninja
-
-ENV NDK_VERSION android-ndk-r18b
-ENV NDK_ZIP ${NDK_VERSION}-linux-x86_64.zip
-
-RUN wget -q https://dl.google.com/android/repository/${NDK_ZIP} && \
-    unzip -q ${NDK_ZIP} && \
-    rm ${NDK_ZIP}
-ENV ANDROID_NDK_HOME ${ANDROID_SDK}/${NDK_VERSION}
