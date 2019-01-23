@@ -48,10 +48,7 @@ ENV ANDROID_SDK_ROOT /opt/android-sdk
 ENV ANDROID_HOME /opt/android-sdk
 ENV AndroidSDK /opt/android-sdk
 
-ENV ANDROID_LICENSES ${ANDROID_SDK}/licenses
-RUN mkdir ${ANDROID_SDK}/licenses
-RUN echo -e "\nd56f5187479451eabf01fb78af6dfcb131a6481e" > ${ANDROID_LICENSES}/android-sdk-license
-RUN echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > ${ANDROID_LICENSES}/android-sdk-preview-license
+RUN yes | ${AndroidSDK}/tools/bin/sdkmanager --licenses
 
 RUN mkdir -p ${ANDROID_SDK}/.android && \
     touch ${ANDROID_SDK}/.android/repositories.cfg

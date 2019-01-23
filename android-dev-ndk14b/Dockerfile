@@ -8,7 +8,7 @@ RUN wget -q https://dl.google.com/android/repository/${NDK_ZIP} && \
     rm ${NDK_ZIP}
 ENV ANDROID_NDK_HOME ${ANDROID_SDK}/${NDK_VERSION}
 
-RUN ${ANDROID_SDK}/tools/bin/sdkmanager "platform-tools" "platforms;android-26" "build-tools;26.0.2"
+RUN yes | ${ANDROID_SDK}/tools/bin/sdkmanager "platform-tools" "platforms;android-26" "build-tools;26.0.2"
 
 WORKDIR /agent
 CMD ./config.sh --unattended --url https://dev.azure.com/crestron-mobile-devops/ --auth pat --token ${AGENT_TOKEN} --pool "Local Ubuntu" --agent "android-dev-ndk14b" --replace --acceptTeeEula && ./run.sh
