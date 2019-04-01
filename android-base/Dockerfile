@@ -14,14 +14,13 @@ RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
   zip \
   unzip \
   openjdk-8-jdk \
-  cmake \
   gcc \
   g++ \
   ninja-build \
   && apt-get clean
 
 RUN mkdir /agent
-COPY vsts-agent-linux-x64-2.140.2.tar.gz /agent/vsts-agent.tar.gz
+COPY vsts-agent-linux-x64-2.149.2.tar.gz /agent/vsts-agent.tar.gz
 WORKDIR "/agent"
 RUN tar zxf vsts-agent.tar.gz
 RUN chmod -R 777 /agent
