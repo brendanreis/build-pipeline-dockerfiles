@@ -9,4 +9,4 @@ RUN wget -q https://dl.google.com/android/repository/${NDK_ZIP} && \
 ENV ANDROID_NDK_HOME ${ANDROID_SDK}/${NDK_VERSION}
 
 WORKDIR /agent
-CMD ./config.sh --unattended --url https://dev.azure.com/crestron-mobile-devops/ --auth pat --token ${AGENT_TOKEN} --pool "Local Ubuntu" --agent "android-dev-ndk18b" --replace --acceptTeeEula && ./run.sh
+CMD ./config.sh --unattended --url https://dev.azure.com/crestron-mobile-devops/ --auth pat --token ${AGENT_TOKEN} --pool "Local Ubuntu" --agent ${AGENT_NAME} --replace --acceptTeeEula && ./run.sh
